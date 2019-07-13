@@ -1,0 +1,188 @@
+\documentclass[10pt,letterpaper]{article}
+
+% NOTE: this only compiles with XeLaTeX (due to the fonts), because of the fonts.
+% Also, because a package really wants a4paper apposed to letterpaper, we have to set a flag
+% to keep compiling through warnings. ¯\_(ツ)_/¯
+%
+% So, to compiles this document, use the following shell command:
+%
+% xelatex -interaction=nonstopmode illya-starikov-resume.tex
+%
+% NOTE: This requires some fonts to compile properly, specially FontIn. You can find the font here: https://www.exljbris.com/fontin.html
+% Place the fonts files (OTF)s at the same level as this document.
+
+\usepackage{xunicode,xltxtra,url,parskip,enumitem,marvosym,graphicx,titlesec,hyperref,fontawesome,setspace,siunitx,multicol,textcomp}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage[big]{layaureo}
+\usepackage[absolute]{textpos}
+\usepackage{fontspec} % For loading fonts
+\usepackage{ifthen}
+
+\defaultfontfeatures{Mapping=tex-text}
+\setmainfont[
+    SmallCapsFont = Fontin-SmallCaps.otf,
+    BoldFont =      Fontin-Bold.otf,
+    ItalicFont =    Fontin-Italic.otf
+]{Fontin-Regular.otf}
+\setfontfamily{\FA}{[FontAwesome.otf]}
+\defaultfontfeatures{Mapping=tex-text}
+
+% Link color should be mostly black, with a border around it
+\definecolor{linkcolour}{rgb}{0,0.2,0.6}
+\hypersetup{colorlinks=false,allbordercolors={0 0 0},pdfborderstyle={/S/U/W 1}}
+
+\newif\ifen
+\newif\ifnl
+
+% Just a useful utility for splitting up columns
+\newcommand{\br}{\\\multicolumn{2}{c}{}}
+\newcommand{\en}[1]{\ifen#1\fi}
+\newcommand{\nl}[1]{\ifnl#1\fi}
+
+% Set the margins to 5inches a piece
+\newgeometry{noheadfoot=true,top=.5in,bottom=.5in, left=.5in, right=.5in}
+
+% Make titles fit the page better
+\titleformat{\section}{\Large\scshape\raggedright}{}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{3pt}{3pt}
+
+% Make bullet point pretty
+\setlist[itemize]{label=$\circ$, leftmargin=12pt, noitemsep, before={\vspace*{-.5\baselineskip}}, after={\vspace*{-\baselineskip}}}
+
+% Don't hyphenate anything
+\tolerance=1
+\emergencystretch=\maxdimen%
+\hyphenpenalty=10000
+\hbadness=10000
+
+% Absolute text positioning
+\setlength{\TPHorizModule}{30mm}
+\setlength{\TPVertModule}{\TPHorizModule}
+
+% Don't hyphenate anything, make the text start closer to the ceiling
+\textblockorigin{2mm}{0.65\paperheight}
+\setlength{\parindent}{0pt}
+
+
+% Define document language
+% \entrue -> english / engels
+% \nltrue -> dutch / nederlands
+\entrue
+
+
+\begin{document}
+\pagestyle{empty}
+
+\par{\centering
+    {\Huge \textsc{Robbe Decorte}
+}\bigskip\par}
+
+\vspace{-.5em}
+
+\begin{multicols}{2}
+\begin{tabular}{rl}
+    \textsc{Email \faMailReplyAll} & \href{mailto:robbe.decorte@student.hogent.be}{robbe.decorte@student.hogent.be} \\
+    \textsc{Phone \faPhone}        & +32 495 27 15 68 \\
+    \textsc{LinkedIn \faLinkedin}  & \href{https://linkedin.com/in/robbedec/}{linkedin.com/in/robbedec} \\
+    \textsc{Github \faGithub}      & \href{https://github.com/robbedec}{github.com/robbedec}
+\end{tabular}
+
+    \en{Software Engineer with a diverse background in technologies and topics. Passionate about learning and problem solving. Looking for opportunities in Artificial Intelligence with an emphasis in Machine Learning.}
+    
+    \nl{Student toegepaste informatica aan HoGent met een brede achtergrond in computertechnologie en gerelateerde gebieden. Gepassioneerd door AI (machine learning) en probleemoplossend denken.}
+
+\end{multicols}
+
+\vspace{-.5em}
+
+\section{\en{Work Experience}\nl{Werk Ervaring}}
+\begin{tabular}{r|p{16cm}}
+    \textsc{\en{Current}\nl{Huidig}}  & \textbf{\nl{Projectwerk}}  \\
+    Sept 2017    & \textit{HoGent}, Kansas City KS\\ &
+    \begin{itemize}
+        \item Leads system testing effort by designing new test architecture, expanding on existing test infrastructure, and communicating new testing procedures
+        \item Coordinates team efforts in tooling (creating and maintaining several in-house tools, drove team OS upgrades for Ubuntu and Windows)
+        \item Implemented product configurability component to be used by avionics manufacture
+    \end{itemize} \br\\
+
+    \textsc{May 2017} & \textbf{Software Engineering Intern} \\
+    Feb 2017           & \textit{IT Department of Bruges City}, Bruges West-Flanders \\ &
+    \begin{itemize}
+        \item Created multitier validation system that strips validators off specified classes (through C\# reflection), allowing for easy addition of new validators for first-time users
+        \item Replaced prior system with said scheme, resulting in 25\% code reduction in affected classes
+        \item Implemented quality of life improvements and new features for a specified aviation tool
+    \end{itemize} \br\\
+
+    \textsc{\en{June}\nl{Juni} 2018} & \textbf{\en{Studentjob}\nl{Studentenjob}} \\
+    \en{Aug}\nl{Augustus} 2014    & \textit{Pizzahut}, \en{Bruges}\nl{Brugge} \\ &
+    \begin{itemize}
+        \item Prepared and maintained in-house automation suite to assess the performance of navigation routing
+        \item Enhanced reliability (from 80\% to 100\% success rate) and execution speed (5x) of automation suite by introducing new, optimized APIs
+    \end{itemize} \br\\
+
+    
+\end{tabular}
+
+\section{\en{Technical Skills}\nl{Technische Skills}}
+\begin{tabular}{r|p{16cm}}
+    \textsc{\small \en{Languages}\nl{Talen}} &
+    C\#,
+    Java,
+    JavaScript,
+    (T)SQL,
+    Python,
+    \LaTeX{},
+    \textsc{Bash},
+    Kotlin,
+    R (\en{not in a particular order)}\nl{geen specifieke volgorde}) \br\\
+
+    \textsc{\small Tools} &
+        Git,
+        ASP.NET,
+        Android Development,
+        UWP (Universal Windows Platform),
+        Regex,
+        Unit Testing,
+        Docker,
+        Vim,
+        Visual Studio,
+        Azure \br\\
+
+    \textsc{\small \en{Interests}\nl{Interesses}} &
+        Symbolic AI,
+        Evolutionary Algorithms
+        Machine Learning,
+        System Architecture Design,
+        Mathematics
+\end{tabular}
+
+\section{\en{Education}\nl{Onderwijs}}
+\begin{tabular}{r|p{16cm}}
+    \textsc{Dec} 2018 & \textbf{Bachelor of Science, Computer Science} \\
+                      &\textit{Missouri University of Science and Technology, Rolla MO}  \\
+                      & GPA: \textbf{3.83/4.00} \textit{(Summa Cum Laude)} \\
+                      & Coursework:
+                        Artificial Intelligence,
+                        Evolutionary Computing,
+                        Data Mining,
+                        Object-Oriented Numerical Modeling,
+                        Analysis of Algorithms,
+                        Calculus,
+                        Linear Algebra,
+                        Statistics,
+                        Differential Equations
+\end{tabular}
+
+\section{Professional Affiliations}
+\begin{tabular}{r|p{16cm}}
+    \textsc{College}
+        & Missouri S\&T Satellite Team (Team Lead, \href{http://web.mst.edu/~mrsat/subsystems/payload.html}{Stereoscopic Imaging}),
+        Association for Computing Machinery (\href{https://open.kattis.com/universities/mst.edu}{18\textsuperscript{th}/229}, \href{https://acm.mst.edu/sigs/}{SIG Competition}),
+        Institute of Electrical and Electronics Engineers \br\\
+
+    \textsc{Professional} &
+        STEM Outreach (K-12),
+        College Outreach (ACM),
+        Emerging Professionals \\
+\end{tabular}
+\end{document}
