@@ -5,7 +5,7 @@ This document can be compiled in 2 languages (en/nl). To switch the preferred la
 This can only be compiled with `XeLaTeX` because of some fonts used in the template.
 It also needs custom fonts which can be found in [this repository](https://github.com/robbedec/resume/tree/master/fonts).
 
-The package Layaureo really wants a4paper apposed to letterpaper, we have to set a flag to keep compiling through warnings.
+The package Layaureo really wants a4paper apposed to letterpaper, we have to set a flag to keep compiling through warnings. This can be achieved by commenting the thrown error in `layaureo.sty`.
 
 Create document on Linux/MacOS
 ```
